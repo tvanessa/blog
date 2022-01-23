@@ -25,7 +25,7 @@ Muchas veces es nefasto encontrar varios (sino es que miles) errores al compilar
 ¿Cansado de importar librerías como asíatico en TopCoder? ¡Aquí está la solución!
 Muchas veces es nefasto encontrar varios (sino es que miles) errores al compilar a causa de librerías que hemos olvidado incluir."><meta itemprop=datePublished content="2014-07-07T05:37:40+00:00">
 <meta itemprop=dateModified content="2014-07-07T05:37:40+00:00">
-<meta itemprop=wordCount content="584">
+<meta itemprop=wordCount content="583">
 <meta itemprop=keywords content="c++,cin,Concursos,cool,cout,librerias,Material de estudio,trucos,yolo,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Trucos para ser más cool">
 <meta name=twitter:description content="Después de un rato de investigación y experimentación, por fin me tomo el tiempo para escribir este post y presentarles algunos trucos que, considero, podrían ayudarles a simplificarse la vida cuando programen y, obviamente, a ser mucho más cool.
@@ -53,6 +53,13 @@ omegaUp blog
 </nav>
 </div>
 </header>
+<header class="bg-black-90 sticky w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
+<nav class="f6 fw6 ttu tracked">
+<a class="link dim white dib mr3" href=/ title=Inicio>Inicio</a>
+<a class="link dim white dib mr3" href=/search/ title=Búsqueda>Búsqueda</a>
+<a class="link dim white dib" href=https://omegaup.org/ title="Acerca de">Acerca de</a>
+</nav>
+</header>
 <main class=pb7 role=main>
 <article class="flex-l flex-wrap justify-between mw8 center ph3">
 <header class="mt4 w-100">
@@ -79,8 +86,9 @@ erosethan
 <p>Sin embargo esto siempre fue un mito, los métodos cin/cout son incluso más eficientes que scanf/printf, solo había que descubrir el por que no lo notamos.</p>
 <p>Resulta que cin/cout son muy buenos amigos de scanf/printf. Como son tan buenos amigos, al realizar la lectura y salida no querían alejarse demasiado, por lo que cin/cout tenía que sincronizarse para estar siempre a la par de scanf/printf.</p>
 <p>Para no hacer el cuento largo, hay una forma de desactivar la opción de sincronización entre cin/cout y scanf/printf, solo es necesario incluir al inicio del main:</p>
-<p><code>cin.tie(0); ios_base::sync_with_stdio(0);</code></p>
-<p>Con esto podemos usar cin y cout sin temor a obtener TLE por lectura lenta, ¡Yaaay!</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c++ data-lang=c++>std<span style=color:#f92672>::</span>cin.tie(<span style=color:#66d9ef>nullptr</span>);
+std<span style=color:#f92672>::</span>ios_base<span style=color:#f92672>::</span>sync_with_stdio(false);
+</code></pre></div><p>Con esto podemos usar cin y cout sin temor a obtener TLE por lectura lenta, ¡Yaaay!</p>
 <p><em><strong>¿Y eso es todo? ¿Ya puedo disfrutar de cin y cout?</strong></em></p>
 <p>Casi. Antes de cantar victoria hay un último detalle para evitar los TLE. Gracias a un último experimento, encontramos que cuando se presentaban outputs muy grandes, cin/cout optimizado seguía lanzando TLE cuando scanf/printf no.</p>
 <p>¡Tranquilos! También es posible evitar este error. El problema se presentaba porque comúnmente usaríamos lo siguiente: <code>cout &lt;&lt; numero &lt;&lt; endl</code>. Sucede que <em>endl</em>, además de imprimir un salto de línea, hace <em>flush</em> en el flujo de salida, lo cual es considerablemente costoso al imprimir muchas líneas y entorpece el rendimiento.</p>
@@ -88,14 +96,17 @@ erosethan
 <p>Con los dos trucos anteriores, la eficiencia de cin/cout mejora generalmente un <em><strong>5-10%</strong></em> los resultados obtenidos por scanf/printf. Bastante cool, ¿no?</p>
 <p>Aunque el objetivo original no es ganar unas cuantas centésimas de segundo en eficiencia, sino dar la oportunidad a aquellos olímpicos que no manejan scanf/printf para seguir usando cin/cout sin enfrentarse a más complicaciones.</p>
 <p>Finalmente les dejó un ejemplo de cómo usar todo lo anterior en un código de C++. Espero que algo de esto les pueda ayudar en el futuro. Les deseo lo mejor :)</p>
-<p><code>#include &lt;bits/stdc++.h> #define optimizar_io ios_base::sync_with_stdio(0);cin.tie(0);</code></p>
-<p>`</p>
-<p>using namespace std;</p>
-<p>int main(){         optimizar_io</p>
-<p>        int a, b;         cin &#187; a &#187; b;         cout &#171; a + b &#171; &ldquo;\n&rdquo;;</p>
-<p>`</p>
-<p><code>        return 0; }</code></p>
-<ul class=pa0>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c++ data-lang=c++><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;bits/stdc++.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#define optimizar_io do { std::ios_base::sync_with_stdio(false); std::cin.tie(nullptr); } while(false)`
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>(){
+  optimizar_io;
+  <span style=color:#66d9ef>int</span> a, b;
+  std<span style=color:#f92672>::</span>cin <span style=color:#f92672>&gt;&gt;</span> a <span style=color:#f92672>&gt;&gt;</span> b;
+  std<span style=color:#f92672>::</span>cout <span style=color:#f92672>&lt;&lt;</span> a <span style=color:#f92672>+</span> b <span style=color:#f92672>&lt;&lt;</span> <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>;
+  <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+}
+</code></pre></div><ul class=pa0>
 <li class=list>
 <a href=/tags/c++ class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">c++</a>
 </li>
@@ -173,7 +184,7 @@ erosethan
 </div></div>
 </div>
 </footer>
-<script type=text/javascript src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type=text/javascript async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type=text/x-mathjax-config>
   MathJax.Hub.Config({
     tex2jax: {
