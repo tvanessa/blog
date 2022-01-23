@@ -1,13 +1,13 @@
-baseURL = ''
+baseURL = 'https://blogv2.omegaup.com/'
 languageCode = 'es-mx'
 title = 'omegaUp blog'
 theme = 'omegaup'
 [params]
-	custom_css = ['https://fonts.googleapis.com/css?family=Libre+Franklin%3A300%2C300i%2C400%2C400i%2C600%2C600i%2C800%2C800i&#038;subset=latin%2Clatin-ext', 'https://blog.omegaup.com/wp-content/themes/twentyseventeen/style.css?ver=4.9.1', 'css/styles.css']
+	custom_css = ['https://fonts.googleapis.com/css?family=Libre+Franklin%3A300%2C300i%2C400%2C400i%2C600%2C600i%2C800%2C800i&#038;subset=latin%2Clatin-ext', 'css/styles.css']
   AuthorName = 'The omegaUp Authors'
   GitHubUser = 'omegaup'
   SidebarRecentLimit = 5
-	featured_image = 'images/cover.jpeg'
+	featured_image = '/images/cover.jpeg'
   body_classes = "bg-near-white"
 	description = 'Incrementando el talento de Ingeniería de Software en América Latina'
   post_content_classes = 'sans-serif'

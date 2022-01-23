@@ -22,6 +22,10 @@ jobs:
       - name: Build
         run: hugo --minify
 
+      - name: Add CNAME file
+        run: |
+          echo blog2.omegaup.com > public/CNAME
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
