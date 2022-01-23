@@ -27,7 +27,10 @@ Resulta que cin/cout son muy buenos amigos de scanf/printf. Como son tan buenos 
 
 Para no hacer el cuento largo, hay una forma de desactivar la opción de sincronización entre cin/cout y scanf/printf, solo es necesario incluir al inicio del main:
 
-`cin.tie(0); ios_base::sync_with_stdio(0);`
+```c++
+std::cin.tie(nullptr);
+std::ios_base::sync_with_stdio(false);
+```
 
 Con esto podemos usar cin y cout sin temor a obtener TLE por lectura lenta, ¡Yaaay!
 
@@ -45,16 +48,15 @@ Aunque el objetivo original no es ganar unas cuantas centésimas de segundo en e
 
 Finalmente les dejó un ejemplo de cómo usar todo lo anterior en un código de C++. Espero que algo de esto les pueda ayudar en el futuro. Les deseo lo mejor :)
 
-`#include <bits/stdc++.h> #define optimizar_io ios_base::sync_with_stdio(0);cin.tie(0);`
+```c++
+#include <bits/stdc++.h>
+#define optimizar_io do { std::ios_base::sync_with_stdio(false); std::cin.tie(nullptr); } while(false)`
 
-`
-
-using namespace std;
-
-int main(){         optimizar_io
-
-        int a, b;         cin >> a >> b;         cout << a + b << "\n";
-
-`
-
-`        return 0; }`
+int main(){
+  optimizar_io;
+  int a, b;
+  std::cin >> a >> b;
+  std::cout << a + b << "\n";
+  return 0;
+}
+```
