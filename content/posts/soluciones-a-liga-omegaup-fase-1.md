@@ -7,39 +7,39 @@ draft: false
 tags: ['Concursos', 'liga omegaup', 'Material de estudio', 'solución', 'soluciones']
 ---
 
-*   **[Problema A](https://omegaup.com/arena/problem/Rango-simple)**
+## [Problema A](https://omegaup.com/arena/problem/Rango-simple)
 
 Para este problema, consideramos un arreglo de ocurrencias $O$ sobre los elementos del arreglo. De modo que la respuesta está dada por
 
 $\\sum\\limits\_{i=A}^B O\_{i}$
 
-\[gist id="df979afcf721ba5aee429f948350e051" file="A.cpp"\]
+{{< gist DBriaares df979afcf721ba5aee429f948350e051 >}}
 
-*   **[Problema B](https://omegaup.com/arena/problem/A-contar-lapices)**
+## [Problema B](https://omegaup.com/arena/problem/A-contar-lapices)
 
 Si consideramos el mismo arreglo de ocurrencias $O$ sobre los elementos del arreglo, la respuesta está dada por $O\_k$.
 
-\[gist id="2380189d0e29c2e29ab52771f353ebbe" file="B.cpp"\]
+{{< gist DBriaares 2380189d0e29c2e29ab52771f353ebbe >}}
 
-*   **[Problema C](https://omegaup.com/arena/problem/nofib)**
+## [Problema C](https://omegaup.com/arena/problem/nofib)
 
 Podemos generar todos los elementos de la secuencia de Fibonacci hasta $30000$, y guardarlos en un mapa $M$, de modo que $M\_k = 1$ si $k$ es un elemento de Fibonnaci, y $M\_k = 0$ en caso contrario. Generamos la respuesta simplemente iterando desde $i = 4$ hasta $i = N - 1$, e imprimimos $i$ si $M\_i = 0$.
 
-\[gist id="7d2a6b7afb388ceb9b22cf2f077670f5" file="C.cpp"\]
+{{< gist DBriaares 7d2a6b7afb388ceb9b22cf2f077670f5 >}}
 
-*   **[Problema D](https://omegaup.com/arena/problem/Posicion-Fibonacci)**
+## [Problema D](https://omegaup.com/arena/problem/Posicion-Fibonacci)
 
 La clave para este problema, es usar variables que no provoquen un desbordamiento, por ejemplo, unsigned long long. Luego, es conocido que la serie de Fibonacci crece rápidamente, lo suficiente, como para generar la secuencia con todos sus elementos menores o iguales a $N$, guardando por cada uno su respectiva posición en ella. Por lo tanto, basta con checar si $N$ es un elemento, e imprimir su posición. En caso de no serlo, imprimimos $-1$.
 
-\[gist id="00ea7419ff9454b86d63b052d44d0337" file="D.cpp"\]
+{{< gist DBriaares 00ea7419ff9454b86d63b052d44d0337 >}}
 
-*   **[Problema E](https://omegaup.com/arena/problem/estacion)**
+## [Problema E](https://omegaup.com/arena/problem/estacion)
 
 Este tipo de problema es conocido como straight-forward. Podemos guardar las estaciones de radio, y checar cuál estación es la mas cercana a la frecuencia dada, con una simple resta. En caso de haber dos estaciones con la misma distancia, la respuesta es la mayor. Solo debemos cuidar que la frecuencia esté dentro del rango permitido.
 
-\[gist id="f1fb91811095dee376d6961c65b8e017" file="E.cpp"\]
+{{< gist DBriaares f1fb91811095dee376d6961c65b8e017 >}}
 
-*   **[Problema F](https://omegaup.com/arena/problem/Tu-y-tu-Futuro)**
+## [Problema F](https://omegaup.com/arena/problem/Tu-y-tu-Futuro)
 
 En este problema lo que tenemos es un grafo dirigido acíclico con aristas pesadas (intuitivamente, es un árbol, sin la propiedad de que cualquier par de nodos estan conectados por un único camino). Los vértices son los eventos temporales, las aristas son dirigidas de $p\_i$ a $i$, y su peso es $d\_i$. Además, cada vértice contiene un valor extra $r\_i$. Un grafo que podemos asociar al primer caso de ejemplo es el siguiente.
 
@@ -48,8 +48,6 @@ En este problema lo que tenemos es un grafo dirigido acíclico con aristas pesad
 Sean $v\_1$ y $v\_k$ dos vértices distintos, tales que $v\_1$ es ancestro de $v\_k$. Es decir, existe un camino $v\_1 \\rightarrow v\_2 \\rightarrow \\ldots \\rightarrow v\_k$ en el grafo. Definimos $S(v\_1, v\_k)$ como
 
 $\\sum\\limits\_{i=1}^{k - 1} d\_{v\_i}$
-
- 
 
 Es decir, la suma de los pesos en las aristas del camino. De modo que el problema se convierte en: Para cada vertice $v$, contar cuántos vértices $u$ en su "subárbol" $\\;$ existen tales que
 
@@ -97,9 +95,9 @@ Lo que se puede hacer en la misma DFS.
 
 Por lo tanto, nuestro algoritmo tiene complejidad $O(Nlog(N))$.
 
-\[gist id="230bf4f852d80fba75be9f2c322124b4" file="F.cpp"\]
+{{< gist DBriaares 230bf4f852d80fba75be9f2c322124b4 >}}
 
-*   **[Problema G](https://omegaup.com/arena/problem/Karel-y-los-quebrados)**
+## [Problema G](https://omegaup.com/arena/problem/Karel-y-los-quebrados)
 
 Primero reescribamos la expresión dada como
 
@@ -133,4 +131,4 @@ con $a,b > 0$. Si simplificas la igualdad llegas a que $k^2 = ab$, así que todo
 
 Nota: Agradezco a José Tapia y a Carlos Galeana por su colaboración en el problema $G$.
 
-\[gist id="1bf8bac6ba8c1040befc7b4b64900ac2" file="G.cpp"\]
+{{< gist DBriaares 1bf8bac6ba8c1040befc7b4b64900ac2 >}}
