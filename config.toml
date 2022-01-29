@@ -1,4 +1,4 @@
-baseURL = 'https://blogv2.omegaup.com/'
+baseURL = 'https://blog.omegaup.com/'
 languageCode = 'es-mx'
 title = 'omegaUp blog'
 theme = 'omegaup'
